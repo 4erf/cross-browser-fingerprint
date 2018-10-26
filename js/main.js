@@ -1,7 +1,7 @@
 var resolve = new Event('resolve');
 
 (function () {
-    const ip_address = "192.168.0.167:5000"
+    const ip_address = "206.189.31.240:5000"
 
     const elements = {
         'new': document.getElementById('new'),
