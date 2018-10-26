@@ -33,7 +33,7 @@ var resolve = new Event('resolve');
                     type: 'POST',
                     data: JSON.stringify(data),
                     success: function (data) {
-                        console.log(data);
+                        alert(data);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
@@ -78,7 +78,7 @@ var resolve = new Event('resolve');
                                     type: 'POST',
                                     data: JSON.stringify(postData),
                                     success: function (data) {
-                                        console.log(data);
+                                        alert(data);
                                     },
                                     error: function (xhr, ajaxOptions, thrownError) {
                                         alert(thrownError);
@@ -126,7 +126,7 @@ var resolve = new Event('resolve');
                     type: 'POST',
                     data: JSON.stringify(postData),
                     success: function (data) {
-                        console.log(data);
+                        alert(data);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
