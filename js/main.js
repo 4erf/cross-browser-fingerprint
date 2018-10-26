@@ -33,7 +33,7 @@ var resolve = new Event('resolve');
                     type: 'POST',
                     data: JSON.stringify(data),
                     success: function (data) {
-                        alert(data);
+                        alert(data.result);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
@@ -78,7 +78,7 @@ var resolve = new Event('resolve');
                                     type: 'POST',
                                     data: JSON.stringify(postData),
                                     success: function (data) {
-                                        alert(data);
+                                        alert(data.result);
                                     },
                                     error: function (xhr, ajaxOptions, thrownError) {
                                         alert(thrownError);
@@ -86,7 +86,6 @@ var resolve = new Event('resolve');
                                 });
                             });
                         }
-                        console.log(data);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
@@ -126,7 +125,7 @@ var resolve = new Event('resolve');
                     type: 'POST',
                     data: JSON.stringify(postData),
                     success: function (data) {
-                        alert(data);
+                        alert(data.result);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
