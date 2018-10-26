@@ -86,6 +86,7 @@ var resolve = new Event('resolve');
                                 });
                             });
                         }
+			alert(data.result);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
