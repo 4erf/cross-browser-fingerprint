@@ -1,0 +1,37 @@
+var CanvasTest = function() {
+    canvasData = "Not supported";
+    canvas = $("<canvas height='200' width='400'></canvas>")[0];
+    canvasContext = canvas.getContext("2d");
+    canvas.style.display = "inline";
+    canvasContext.textBaseline = "alphabetic";
+    canvasContext.fillStyle = "#f60";
+    canvasContext.fillRect(125, 1, 62, 20);
+    canvasContext.fillStyle = "#069";
+    canvasContext.font = "11pt no-real-font-123";
+    canvasContext.fillText("Cwm fjordbank glyphs vext quiz, \ud83d\ude03", 2, 15);
+    canvasContext.fillStyle = "rgba(102, 204, 0, 0.7)";
+    canvasContext.font = "18pt Arial";
+    canvasContext.fillText("Cwm fjordbank glyphs vext quiz, \ud83d\ude03", 4, 45);
+    canvasContext.globalCompositeOperation = 'multiply';
+    canvasContext.fillStyle = 'rgb(255,0,255)';
+    canvasContext.beginPath();
+    canvasContext.arc(50, 50, 50, 0, Math.PI * 2, true);
+    canvasContext.closePath();
+    canvasContext.fill();
+    canvasContext.fillStyle = 'rgb(0,255,255)';
+    canvasContext.beginPath();
+    canvasContext.arc(100, 50, 50, 0, Math.PI * 2, true);
+    canvasContext.closePath();
+    canvasContext.fill();
+    canvasContext.fillStyle = 'rgb(255,255,0)';
+    canvasContext.beginPath();
+    canvasContext.arc(75, 100, 50, 0, Math.PI * 2, true);
+    canvasContext.closePath();
+    canvasContext.fill();
+    canvasContext.fillStyle = 'rgb(255,0,255)';
+    canvasContext.arc(75, 75, 75, 0, Math.PI * 2, true);
+    canvasContext.arc(75, 75, 25, 0, Math.PI * 2, true);
+    canvasContext.fill('evenodd');
+    canvasData = canvas.toDataURL();
+    return canvasData;
+}
