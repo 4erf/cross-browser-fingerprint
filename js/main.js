@@ -34,6 +34,7 @@ var resolve = new Event('resolve');
                     data: JSON.stringify(data),
                     success: function (data) {
                         alert(data.result);
+	    		document.getElementById('status').innerHTML = data.result;
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError);
@@ -63,10 +64,11 @@ var resolve = new Event('resolve');
                     contentType: 'application/json',
                     type: 'POST',
                     data: JSON.stringify(postData),
-                    success: function (data) {
+                    success: function (data) {	
+	    		document.getElementById('status').innerHTML = data.result;
                         if (data.result == 'not on account') {
                             $("#fingerprint-iframe").attr("src", "fingerprint/cross.html");
-
+			    document.getElementById('status').innerHTML = "Getting Full fingerprint..."
                             $('body').unbind().on('resolveCross', function (e, res) {
                                 postData.cross = res;
                                 postData.mode = 'cross';
@@ -79,6 +81,7 @@ var resolve = new Event('resolve');
                                     data: JSON.stringify(postData),
                                     success: function (data) {
                                         alert(data.result);
+	    				document.getElementById('status').innerHTML = data.result;
                                     },
                                     error: function (xhr, ajaxOptions, thrownError) {
                                         alert(thrownError);
@@ -139,6 +142,7 @@ var resolve = new Event('resolve');
     for (let el in elements) {
         elements[el].addEventListener("click", function () {
             functions[el]();
+	    document.getElementById('status').innerHTML = "Getting Fingerprint...";
         });
     }
 

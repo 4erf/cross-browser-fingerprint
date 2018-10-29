@@ -26,3 +26,13 @@ html, body {
     cursor: pointer;
     box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
 }
+
+.empty {
+	background: none;
+	border: 1px solid #ccc;
+}
+
+.empty:hover {
+	cursor: inherit;
+	box-shadow: none;
+}
