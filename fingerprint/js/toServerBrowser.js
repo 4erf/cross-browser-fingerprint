@@ -1,4 +1,17 @@
-var ip_address = "192.168.0.167";
+(function () {
+  if ( typeof window.CustomEvent === "function" ) return false; //If not IE
+
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+   }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.Event = CustomEvent;
+})();
 
 function getResolution() {
     var zoom_level = detectZoom.device();
@@ -66,7 +79,7 @@ var Sender = function () {
             console.log(this.postData);
             startSend(this.postData);
 
-            function startSend(postData) {
+            function startSend(postData){
                 parent.$('body').trigger('resolveSingle', [postData]);
             }
 
