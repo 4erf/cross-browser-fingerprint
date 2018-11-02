@@ -1,17 +1,32 @@
+(function () {
+  if ( typeof window.CustomEvent === "function" ) return false; //If not IE
+
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+   }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.Event = CustomEvent;
+})();
+
 var resolve = new Event('resolve');
 
 (function () {
-    const ip_address = "138.68.98.220:5000"
+    var ip_address = "138.68.98.220:5000"
 
-    const elements = {
+    var elements = {
         'new': document.getElementById('new'),
         'login': document.getElementById('login'),
         'vote': document.getElementById('vote')
     }
 
-    const functions = {
-        'new': () => {
-            let user = prompt("Username for new account");
+    var functions = {
+        'new': function() {
+            var user = prompt("Username for new account");
             if (user == null) {
                 alert('Enter a valid username');
                 return;
@@ -20,7 +35,7 @@ var resolve = new Event('resolve');
             $("#fingerprint-iframe").attr("src", "fingerprint/cross.html");
 
             $('body').unbind().on('resolveCross', function (e, res) {        
-                let data = {
+                var data = {
                     cross: res,
                     mode: 'cross'
                 };
@@ -42,8 +57,8 @@ var resolve = new Event('resolve');
                 });
             });
         },
-        'login': () => {
-            let user = prompt("Enter your username");
+        'login': function() {
+            var user = prompt("Enter your username");
             if (user == null) {
                 alert('Enter a valid username');
                 return;
@@ -52,7 +67,7 @@ var resolve = new Event('resolve');
             $("#fingerprint-iframe").attr("src", "fingerprint/single.html");
 
             $('body').unbind().on('resolveSingle', function (e, res) {
-                let postData = {
+                var postData = {
                     single: res,
                     mode: 'single'
                 };
@@ -97,7 +112,7 @@ var resolve = new Event('resolve');
                 });
             });
         },
-        'vote': () => {
+        'vote': function() {
             console.log('vote :)')
             /*
             let user = prompt("Enter your username");
@@ -139,11 +154,13 @@ var resolve = new Event('resolve');
         */}
     }
 
-    for (let el in elements) {
-        elements[el].addEventListener("click", function () {
-            functions[el]();
-	    document.getElementById('status').innerHTML = "Getting Fingerprint...";
-        });
-    }
-
+    for(var elm in elements) {
+ 	(function (){
+		var el = elm;
+        	elements[el].addEventListener("click", function () {
+            		functions[el]();
+	    		document.getElementById('status').innerHTML = "Getting Fingerprint...";
+        	});
+	})();
+     }
 })();

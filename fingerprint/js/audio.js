@@ -30,7 +30,7 @@ function audioFingerPrintingBrowser(done) {
     var AudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext
 
     if (AudioContext == null) {
-        return done(options.NOT_AVAILABLE)
+        return "not supported"
     }
 
     var context = new AudioContext(1, 44100, 44100)
