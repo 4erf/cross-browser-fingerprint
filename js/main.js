@@ -27,7 +27,7 @@ var resolve = new Event('resolve');
     var functions = {
         'new': function() {
             var user = prompt("Username for new account");
-            if (user == null) {
+            if (user == "") {
                 alert('Enter a valid username');
                 return;
             }
@@ -59,7 +59,7 @@ var resolve = new Event('resolve');
         },
         'login': function() {
             var user = prompt("Enter your username");
-            if (user == null) {
+            if (user == "") {
                 alert('Enter a valid username');
                 return;
             }
